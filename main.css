@@ -25,3 +25,19 @@ body {
 .invisible {
    opacity: 0;
 }
+
+.menu {
+    position: absolute;
+    top: 60%;
+    left: 42.2%;
+}
+
+.menu li {
+    padding-bottom: 12%;
+    padding-left: 0;
+    list-style-type: none;
+    text-transform: uppercase;
+    font-weight: 600;
+     text-shadow: 2px 2px 14px #333;
+    font-family: sans-serif;
+}

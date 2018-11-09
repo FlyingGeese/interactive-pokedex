@@ -1,8 +1,12 @@
 let pokedex = document.getElementById('pokedex');
+let searchbtn = document.querySelector('ul > li');
+
+searchbtn.addEventListener('click', searchPokemon);
 // get diff coords by determining client with and perform Math
 // change background depending on which element
 // typewriter text in screen
 // flips to stat bars animation
+let powerButton = false;
 function clickXY(event) {
     if ((event.x > 500 && event.x < 530) && (event.y > 528 && event.y < 571)) {
         alert('down button!');
@@ -22,6 +26,13 @@ function clickXY(event) {
 
 function static() {
     document.getElementById('noise').classList.remove('invisible');
+    document.getElementById('menu').classList.remove('invisible');
+    powerButton = true;
+}
+
+function searchPokemon() {
+    var q = prompt('Enter Pokemon name or ID number');
+    console.log(`You searched for ${q}`);
 }
 
 document.addEventListener("click", clickXY);
