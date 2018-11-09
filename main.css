@@ -4,6 +4,7 @@ body {
 
 .pokedex {
     justify-content: center;
+    position: fixed;
     background-image: url('https://img00.deviantart.net/4238/i/2012/295/e/e/pokedex_vector_style_by_cristopheros-d5imu6t.png');
     height: 100vh;
     width: 100%;
@@ -11,3 +12,11 @@ body {
     background-repeat: no-repeat;
 }
 
+#noise {
+    position: absolute;
+    top: 12.4%;
+    left: 40%;
+    height: 30vh;
+    width: 19.3vw;
+    border-radius: 4.5px;
+}

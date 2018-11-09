@@ -9,9 +9,13 @@ function clickXY(event) {
     } else if ((event.x > 532 && event.x < 570) && (event.y > 506 && event.y < 537)) {
         alert('right button!');
     }
-    document.body.textContent =
-        "clientX: " + event.clientX +
-        " - clientY: " + event.clientY;
+
+    if ((event.y > 449 && event.y < 558) && (event.x > 1059 && event.x < 1128)) {
+        alert('searching ...');
+    }
+    // document.body.textContent =
+    //     "clientX: " + event.clientX +
+    //     " - clientY: " + event.clientY;
 }
 
 // right x 533 - 570
