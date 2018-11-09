@@ -8,17 +8,20 @@ function clickXY(event) {
         alert('down button!');
     } else if ((event.x > 532 && event.x < 570) && (event.y > 506 && event.y < 537)) {
         alert('right button!');
+    } else if ((event.x > 466 && event.x < 503) && (event.y > 510 && event.y < 532)) {
+        alert('left button!');
+    } else if ((event.x > 505 && event.x < 531) && (event.y > 469 && event.y < 507)) {
+        alert('up button!');
     }
 
     if ((event.y > 449 && event.y < 558) && (event.x > 1059 && event.x < 1128)) {
-        alert('searching ...');
+        // alert('searching ...');
+        static();
     }
-    // document.body.textContent =
-    //     "clientX: " + event.clientX +
-    //     " - clientY: " + event.clientY;
 }
 
-// right x 533 - 570
-// right y 507 - 536
+function static() {
+    document.getElementById('noise').classList.remove('invisible');
+}
 
 document.addEventListener("click", clickXY);

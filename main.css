@@ -19,4 +19,9 @@ body {
     height: 30vh;
     width: 19.3vw;
     border-radius: 4.5px;
+    transition: opacity 0.5s;
+}
+
+.invisible {
+   opacity: 0;
 }
