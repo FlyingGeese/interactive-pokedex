@@ -81,6 +81,15 @@ div#top-screen {
 
 }
 
+.pokemon-image {
+    position: absolute;
+    z-index: 3;
+    top: 7%;
+    height: auto;
+    width: 33%;
+    right: 20%;;
+}
+
 div#top-screen > div:first-child {
     /* top screen */
     border-radius: 5px;
@@ -200,6 +209,47 @@ div#bottom-screen > div:first-child {
     position: absolute;
     top: 22%;
     left: 14%;
+}
+
+.dot {
+    background: black !important;
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    top: 20%;
+    right: 11%;
+    border-radius: 50% !important;
+    z-index: 2;
+}
+
+#sp1 {
+  top: 40%;
+}
+
+#sp2 {
+    right: 35%;
+}
+
+#sp3 {
+  top: 40%;
+  left: 33%;
+}
+
+#sp4 {
+    top: 58%;
+    right: 35%;
+}
+
+
+#speaker {
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+    background: var(--pokedex-red);
+    position: absolute;
+    top: 9%;
+    left: -22%;
+    height: 29%;
+    width: 26%;
 }
 
 
