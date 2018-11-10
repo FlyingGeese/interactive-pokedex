@@ -2,6 +2,12 @@ body {
     margin: 0;
 }
 
+#dex {
+    position: fixed;
+    top: 10px;
+    left: 22%;
+}
+
 .pokedex {
     justify-content: center;
     position: fixed;
@@ -42,12 +48,41 @@ body {
     font-family: sans-serif;
 }
 
+ul#menu li:first-child:hover {
+    cursor: pointer;
+} 
+
 #pwrbtn {
     height: 100px;
     width: 100px;
     background: black;
     position: absolute;
     opacity: .5;
-    top: 61.5%;
-    left: 75.5%;
+    top: 49.5%;
+    left: 72.5%;
+}
+
+.device-grid {
+    display: grid;
+    position: fixed;
+    top: 27%;
+    left: 32%;
+    grid-template: 200px 200px / 500px;
+}
+
+.device-grid div:nth-child(1) {
+    background: gray;
+}
+
+.device-grid div:nth-child(2) {
+    background: yellow;
+}
+
+div#top-screen > div {
+    background: lightblue;
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
 }
