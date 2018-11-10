@@ -3,6 +3,7 @@ let pwrbtn = document.getElementById('pwrbtn');
 // const ALL_POKEMON = [];
 
 pwrbtn.addEventListener('click', turnOn);
+pwrbtn.addEventListener('click', depressBtn);
 // // get diff coords by determining client with and perform Math
 // // change background depending on which element
 // // typewriter text in screen
@@ -14,6 +15,19 @@ function turnOn() {
     let screen = document.querySelector('div#top-screen > div:first-child');
     screen.style.backgroundImage = 'url(\'noise.gif\')';
     powerButton = true;
+}
+
+function depressBtn() {
+    let btn = document.querySelector('#pwrbtn');
+    btn.style.transform = 'scale(0.88)';
+    // btn.style.boxShadow = '1px 1px 100px black';
+    setTimeout(unpressBtn, 250);
+}
+
+function unpressBtn() {
+    let btn = document.querySelector('#pwrbtn');
+    // box-shadow: 10px 10px 5px grey;
+    btn.style.transform = 'scale(1)';
 }
 
 // function searchPokemon() {

@@ -134,10 +134,16 @@ div#bottom-screen > div:first-child {
     height: 100px;
     width: 100px;
     border-radius: 50% !important;
-    background: #8BAF42 !important;
+    background: #8BAF42;
     position: absolute;
     top: 16%;
     left: 11%;
+    transition: transform .2s;
+}
+
+#pwrbtn:hover {
+    cursor: pointer;
+    background: rgb(113, 143, 54) !important;
 }
 
 .big-well {
