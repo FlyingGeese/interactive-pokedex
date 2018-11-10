@@ -1,6 +1,6 @@
 // let pokedex = document.getElementById('pokedex');
 let pwrbtn = document.getElementById('pwrbtn');
-// const ALL_POKEMON = [];
+const ALL_POKEMON = [];
 
 pwrbtn.addEventListener('click', turnOn);
 pwrbtn.addEventListener('click', depressBtn);
@@ -12,8 +12,12 @@ let powerButton = false;
 
 
 function turnOn() {
-    let screen = document.querySelector('div#top-screen > div:first-child');
-    screen.style.backgroundImage = 'url(\'noise.gif\')';
+    let screen1 = document.querySelector('div#top-screen > div:first-child');
+    let screen2 = document.getElementById('screen2');
+    let menu = document.querySelectorAll('ul')[0];
+    menu.classList.remove('hidden');
+    screen1.style.backgroundImage = 'url(\'noise.gif\')';
+    screen2.style.backgroundColor = '#e5e5e5';
     powerButton = true;
 }
 
@@ -30,27 +34,25 @@ function unpressBtn() {
     btn.style.transform = 'scale(1)';
 }
 
-// function searchPokemon() {
-//     var q = prompt('Enter Pokemon name or ID number');
-//     console.log(`You searched for ${q}`);
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.onreadystatechange = function () {
-//         if (this.readyState == 4 && this.status == 200) {
-//            var pokemon = JSON.parse(this.responseText);
-//            console.log(pokemon);
-//            new Pokemon(pokemon['name'], pokemon['types'][0]['type']['name']);
-//         }
-//     };
-//     xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${q}.json`, true);
-//     xhttp.send();
-// }
+function searchPokemon() {
+    var q = prompt('Enter Pokemon name or ID number');
+    console.log(`You searched for ${q}`);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+           var pokemon = JSON.parse(this.responseText);
+           console.log(pokemon);
+           new Pokemon(pokemon['name'], pokemon['types'][0]['type']['name']);
+        }
+    };
+    xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${q}.json`, true);
+    xhttp.send();
+}
 
-// document.addEventListener("click", clickXY);
-
-// class Pokemon {
-//     constructor(name, element) {
-//         this.name = name;
-//         this.element = element;
-//         ALL_POKEMON.push(this);
-//     }
-// }
+class Pokemon {
+    constructor(name, element) {
+        this.name = name;
+        this.element = element;
+        ALL_POKEMON.push(this);
+    }
+}

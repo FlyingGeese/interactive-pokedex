@@ -39,8 +39,13 @@ body {
 
 .menu {
     position: absolute;
-    top: 60%;
-    left: 42.2%;
+    top: 13%;
+    left: 12.2%;
+    transition: display 1.3s;
+}
+
+.hidden {
+    display: none;
 }
 
 .menu li {
@@ -120,7 +125,7 @@ div#bottom-screen > div:first-child {
 }
 
 #screen2 {
-    background: var(--screen);
+    background-color: var(--screen);
     border: 3px solid #BFBFBF;
     border-radius: 5px;
     position: absolute;
@@ -128,6 +133,7 @@ div#bottom-screen > div:first-child {
     right: 19%;
     width: 58%;
     height: 35%;
+    transition: background-color 1.3s;
 }
 
 #pwrbtn {
