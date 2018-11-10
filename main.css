@@ -41,3 +41,13 @@ body {
      text-shadow: 2px 2px 14px #333;
     font-family: sans-serif;
 }
+
+#pwrbtn {
+    height: 100px;
+    width: 100px;
+    background: black;
+    position: absolute;
+    opacity: .5;
+    top: 61.5%;
+    left: 75.5%;
+}
