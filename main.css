@@ -75,16 +75,24 @@ ul#menu li:first-child:hover {
     grid-template: 300px 300px / 500px;
 }
 
+div#top-screen {
+    z-index: 1;
+}
+
 .device-grid div:nth-child(1) {
     background: var(--pokedex-red);
     border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .device-grid div:nth-child(2) {
-    background: yellow;
+    background: var(--pokedex-red);
+    border-top: 1px solid black;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
-div#top-screen > div {
+div#top-screen > div:first-child {
     border-radius: 5px;
     border-top-right-radius: 5px !important;
     background: var(--screen);
@@ -96,10 +104,21 @@ div#top-screen > div {
     height: 33.3%;
 }
 
-div#bottom-screen > div {
+div#top-screen > div:nth-child(2) {
+   /*  */
+   background: #474747 !important;
+   position: absolute;
+   width: 75%;
+   height: 31%;
+    z-index: -1;
+    top: 6.5%;
+    left: 13%;
+}
+
+div#bottom-screen > div:first-child {
     border-top-right-radius: 50% !important;
     border-bottom-right-radius: 50% !important;
-    background: gray;
+    background: #474747;
     position: absolute;
     bottom: 15%;
     right: -30%;
@@ -116,3 +135,15 @@ div#bottom-screen > div {
     top: 16%;
     left: 11%;
 }
+
+.well {
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+    background: #474747 !important;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: -45%;
+}
+
