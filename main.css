@@ -1,3 +1,8 @@
+:root {
+    --pokedex-red: #E5441F;
+    --screen: #376092;
+}
+
 body {
     margin: 0;
 }
@@ -71,7 +76,7 @@ ul#menu li:first-child:hover {
 }
 
 .device-grid div:nth-child(1) {
-    background: gray;
+    background: var(--pokedex-red);
     border-top-right-radius: 25px;
 }
 
@@ -82,8 +87,8 @@ ul#menu li:first-child:hover {
 div#top-screen > div {
     border-radius: 5px;
     border-top-right-radius: 5px !important;
-    background: lightblue;
-    border: 3px solid green;
+    background: var(--screen);
+    border: 3px solid #BFBFBF;
     position: absolute;
     top: 5%;
     left: 22%;
