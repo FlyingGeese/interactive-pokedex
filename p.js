@@ -28,7 +28,15 @@ function turnOn() {
 
 function shutdown() {
     powerButton = false;
+    let screen1 = document.querySelector('div#top-screen > div:first-child');
+    let screen2 = document.getElementById('screen2');
+    let cursor = document.getElementById('cursor');
     let light = document.getElementById('led');
+    let menu = document.querySelectorAll('ul')[0];
+    menu.classList.add('hidden');
+    cursor.classList.add('hidden');
+    screen1.style.background = '#376092';
+    screen2.style.backgroundColor = '#376092';
     light.classList.remove('pwr-on');
     light.classList.add('pwr-off');
 }
