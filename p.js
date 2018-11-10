@@ -9,6 +9,25 @@ pwrbtn.addEventListener('click', depressBtn);
 // // typewriter text in screen
 // // flips to stat bars animation
 let powerButton = false;
+let atTop = true;
+let atBottom = false;
+
+document.addEventListener("keydown", function (event) {
+    let cursor = document.getElementById('cursor');
+    // 27 esc
+    // up 38
+    // if at the top, go to second one
+    let dwn = 0;
+    let up = 0;
+    if (event.which == 40) {
+        dwn++;
+        let newVal = parseInt(cursor.style.top) + parseInt('19') + '%';
+        cursor.style.top = newVal;
+    } else if (event.which == 38) {
+        let newVal = parseInt(cursor.style.top) - parseInt('19') + '%';
+        cursor.style.top = newVal;
+    }
+})
 
 
 function turnOn() {
