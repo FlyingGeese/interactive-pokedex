@@ -91,9 +91,12 @@ function searchPokemon() {
                name.remove();
            }
            new Pokemon(pokemon['name'], pokemon['types'][0]['type']['name']);
-           screen1.style.backgroundColor = 'gold';
-           screen1.style.backgroundImage = 'linear-gradient(gold, red)';
+           screen1.style.backgroundColor = 'lightblue';
+           screen1.style.backgroundImage = 'linear-gradient(lightblue, blue)';
            let img = document.createElement('img');
+           let bgImg = document.createElement('img');
+           bgImg.src = 'pokeball.png';
+           bgImg.classList.add('pokedex-info-bg');
            let h3 = document.createElement('h3');
            h3.classList.add('pokemon-name');
            h3.innerHTML = pokemon['name'];
@@ -111,6 +114,7 @@ function searchPokemon() {
         //    img.width = '300px';
            document.getElementById('top-screen').appendChild(h3);
            document.getElementById('top-screen').appendChild(img);
+           document.getElementById('top-screen').appendChild(bgImg);
         }
     };
     xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${q}.json`, true);

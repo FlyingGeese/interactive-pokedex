@@ -266,6 +266,17 @@ div#bottom-screen > div:first-child {
     text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.56), 0 0 2rem rgba(0, 0, 0, 0.56);
 }
 
+.pokedex-info-bg {
+    transform: rotate(30deg);
+    z-index: 2;
+    opacity: 0.15;
+    height: auto;
+    width: 32%;
+    top: 8%;
+    right: 31%;
+    position: absolute;
+}
+
 
 @media only screen and (max-width: 880px) {
     .device-grid {
