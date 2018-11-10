@@ -14,11 +14,23 @@ let powerButton = false;
 function turnOn() {
     let screen1 = document.querySelector('div#top-screen > div:first-child');
     let screen2 = document.getElementById('screen2');
+    let cursor = document.getElementById('cursor');
+    let light = document.getElementById('led');
     let menu = document.querySelectorAll('ul')[0];
     menu.classList.remove('hidden');
+    cursor.classList.remove('hidden');
     screen1.style.backgroundImage = 'url(\'noise.gif\')';
     screen2.style.backgroundColor = '#e5e5e5';
     powerButton = true;
+    light.classList.remove('pwr-off');
+    light.classList.add('pwr-on');
+}
+
+function shutdown() {
+    powerButton = false;
+    let light = document.getElementById('led');
+    light.classList.remove('pwr-on');
+    light.classList.add('pwr-off');
 }
 
 function depressBtn() {
@@ -36,6 +48,9 @@ function unpressBtn() {
 
 function searchPokemon() {
     var q = prompt('Enter Pokemon name or ID number');
+    if (q == undefined || q == '') {
+        return console.log('cancelled');
+    }
     console.log(`You searched for ${q}`);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {

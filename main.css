@@ -1,6 +1,7 @@
 :root {
     --pokedex-red: #E5441F;
     --screen: #376092;
+    
 }
 
 body {
@@ -40,7 +41,7 @@ body {
 .menu {
     position: absolute;
     top: 13%;
-    left: 12.2%;
+    left: 7.2%;
     transition: display 1.3s;
 }
 
@@ -56,6 +57,7 @@ body {
     font-weight: 600;
      text-shadow: 2px 2px 14px #333;
     font-family: sans-serif;
+    letter-spacing: 1.5px;
 }
 
 ul#menu li:first-child:hover {
@@ -68,6 +70,7 @@ ul#menu li:first-child:hover {
     top: 7%;
     left: 32%;
     grid-template: 300px 300px / 500px;
+    transition: transform 1.2s, position 1s;
 }
 
 div#top-screen {
@@ -75,16 +78,22 @@ div#top-screen {
 }
 
 .device-grid div:nth-child(1) {
+    /* top half of device */
     background: var(--pokedex-red);
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }
 
 .device-grid div:nth-child(2) {
+    /* bottom half of device */
     background: var(--pokedex-red);
     border-top: 1px solid black;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+}
+
+.shade-top {
+    box-shadow: inset 0px 5px 1px #333;
 }
 
 div#top-screen > div:first-child {
@@ -163,3 +172,55 @@ div#bottom-screen > div:first-child {
     left: -45%;
 }
 
+.small-well {
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+    background: black !important;
+    width: 88%;
+    height: 62%;
+    position: absolute;
+    top: 15%;
+    left: 44.5%;
+}
+
+#led {
+    border-radius: 0 !important;
+    height: 10px;
+    width: 22px;
+    /* background: green !important; */
+    position: absolute;
+    top: 47%;
+    transition: background-color 1s;
+}
+
+.pwr-on {
+    border-top-color: #8BAF42;
+    box-shadow: 0 0 10px lightgreen;
+    background-color: rgb(51, 204, 51) !important;
+}
+
+.pwr-off {
+    border-top-color: #333;
+    background-color: rgb(107, 107, 107) !important;
+}
+
+#cursor {
+    width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+    border-left: 9px solid #555;
+    border-bottom: 5px solid transparent;
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    top: 22%;
+    left: 14%;
+}
+
+
+@media only screen and (max-width: 880px) {
+    .device-grid {
+        transform: rotate(90deg);
+        left: 15%;
+        top: 20.2%;
+    }
+}
