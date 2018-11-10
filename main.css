@@ -88,5 +88,26 @@ div#top-screen > div {
     top: 5%;
     left: 22%;
     width: 58%;
-    height: 31%;
+    height: 33.3%;
+}
+
+div#bottom-screen > div {
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
+    background: gray;
+    position: absolute;
+    bottom: 15%;
+    right: -30%;
+    height: 150px;
+    width: 150px;
+}
+
+.pwrbtn {
+    height: 100px;
+    width: 100px;
+    border-radius: 50% !important;
+    background: lightgreen !important;
+    position: absolute;
+    top: 16%;
+    left: 11%;
 }
