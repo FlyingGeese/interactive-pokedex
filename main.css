@@ -65,13 +65,14 @@ ul#menu li:first-child:hover {
 .device-grid {
     display: grid;
     position: fixed;
-    top: 27%;
+    top: 7%;
     left: 32%;
-    grid-template: 200px 200px / 500px;
+    grid-template: 300px 300px / 500px;
 }
 
 .device-grid div:nth-child(1) {
     background: gray;
+    border-top-right-radius: 25px;
 }
 
 .device-grid div:nth-child(2) {
@@ -79,10 +80,13 @@ ul#menu li:first-child:hover {
 }
 
 div#top-screen > div {
+    border-radius: 5px;
+    border-top-right-radius: 5px !important;
     background: lightblue;
+    border: 3px solid green;
     position: absolute;
     top: 5%;
-    left: 25%;
-    width: 50%;
-    height: 50%;
+    left: 22%;
+    width: 58%;
+    height: 31%;
 }
