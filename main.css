@@ -57,16 +57,6 @@ ul#menu li:first-child:hover {
     cursor: pointer;
 } 
 
-#pwrbtn {
-    height: 100px;
-    width: 100px;
-    background: black;
-    position: absolute;
-    opacity: .5;
-    top: 49.5%;
-    left: 72.5%;
-}
-
 .device-grid {
     display: grid;
     position: fixed;
@@ -93,6 +83,7 @@ div#top-screen {
 }
 
 div#top-screen > div:first-child {
+    /* top screen */
     border-radius: 5px;
     border-top-right-radius: 5px !important;
     background: var(--screen);
@@ -107,12 +98,14 @@ div#top-screen > div:first-child {
 div#top-screen > div:nth-child(2) {
    /*  */
    background: #474747 !important;
+   border: 3px solid black;
+   border-radius: 9px;
    position: absolute;
-   width: 75%;
-   height: 31%;
-    z-index: -1;
-    top: 6.5%;
-    left: 13%;
+   width: 81%;
+   height: 30.6%;
+   z-index: -1;
+   top: 6.5%;
+   left: 12%;
 }
 
 div#bottom-screen > div:first-child {
@@ -126,17 +119,28 @@ div#bottom-screen > div:first-child {
     width: 150px;
 }
 
-.pwrbtn {
+#screen2 {
+    background: var(--screen);
+    border: 3px solid #BFBFBF;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 9%;
+    right: 19%;
+    width: 58%;
+    height: 35%;
+}
+
+#pwrbtn {
     height: 100px;
     width: 100px;
     border-radius: 50% !important;
-    background: lightgreen !important;
+    background: #8BAF42 !important;
     position: absolute;
     top: 16%;
     left: 11%;
 }
 
-.well {
+.big-well {
     border-top-left-radius: 50% !important;
     border-bottom-left-radius: 50% !important;
     background: #474747 !important;

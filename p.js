@@ -1,20 +1,20 @@
 // let pokedex = document.getElementById('pokedex');
-// let searchbtn = document.querySelector('ul > li');
+let pwrbtn = document.getElementById('pwrbtn');
 // const ALL_POKEMON = [];
 
-// searchbtn.addEventListener('click', searchPokemon);
+pwrbtn.addEventListener('click', turnOn);
 // // get diff coords by determining client with and perform Math
 // // change background depending on which element
 // // typewriter text in screen
 // // flips to stat bars animation
-// let powerButton = false;
+let powerButton = false;
 
 
-// function static() {
-//     document.getElementById('noise').classList.remove('invisible');
-//     document.getElementById('menu').classList.remove('invisible');
-//     powerButton = true;
-// }
+function turnOn() {
+    let screen = document.querySelector('div#top-screen > div:first-child');
+    screen.style.backgroundImage = 'url(\'noise.gif\')';
+    powerButton = true;
+}
 
 // function searchPokemon() {
 //     var q = prompt('Enter Pokemon name or ID number');
