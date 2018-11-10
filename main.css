@@ -252,6 +252,20 @@ div#bottom-screen > div:first-child {
     width: 26%;
 }
 
+.pokemon-name {
+    font-family: Arial;
+    color: #fff;
+    position: absolute;
+    font-size: 1.5vw;
+    z-index: 4;
+    top: 18%;
+    left: 25%;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.56), 0 0 2rem rgba(0, 0, 0, 0.56);
+}
+
 
 @media only screen and (max-width: 880px) {
     .device-grid {

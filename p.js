@@ -87,11 +87,16 @@ function searchPokemon() {
            let existing_img = document.getElementById('pokemon-img');
            if (existing_img != null) {
                existing_img.remove();
+               let name = document.getElementsByClassName('pokemon-name')[0];
+               name.remove();
            }
            new Pokemon(pokemon['name'], pokemon['types'][0]['type']['name']);
            screen1.style.backgroundColor = 'gold';
            screen1.style.backgroundImage = 'linear-gradient(gold, red)';
            let img = document.createElement('img');
+           let h3 = document.createElement('h3');
+           h3.classList.add('pokemon-name');
+           h3.innerHTML = pokemon['name'];
            if (q.length == 1) {
                var id = `00${q}`;
            } else if (q.length == 2) {
@@ -104,6 +109,7 @@ function searchPokemon() {
            img.classList.add('pokemon-image');
         //    img.height = '300px';
         //    img.width = '300px';
+           document.getElementById('top-screen').appendChild(h3);
            document.getElementById('top-screen').appendChild(img);
         }
     };
