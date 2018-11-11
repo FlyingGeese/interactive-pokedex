@@ -57,9 +57,14 @@ function shutdown() {
     let cursor = document.getElementById('cursor');
     let light = document.getElementById('led');
     let menu = document.querySelectorAll('ul')[0];
-    document.getElementById('pokemon-img').remove();
-    document.getElementsByClassName('pokemon-name')[0].remove();     
-    document.getElementsByClassName('pokedex-info-bg')[0].remove();
+    if (pokemonLoaded == true) {
+        let img = document.getElementById('pokemon-img');
+        if (img != null) {
+            document.getElementById('pokemon-img').remove();
+            document.getElementsByClassName('pokemon-name')[0].remove();     
+            document.getElementsByClassName('pokedex-info-bg')[0].remove();
+        }
+    }
     menu.classList.add('hidden');
     cursor.classList.add('hidden');
     screen1.style.background = '#376092';
