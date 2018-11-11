@@ -12,6 +12,8 @@ let powerButton = false;
 let atTop = true;
 let atBottom = false;
 let screen1 = document.querySelector('div#top-screen > div:first-child');
+let submenu = document.querySelector('#submenu');
+let pokemonLoaded = false;
 
 document.addEventListener("keydown", function (event) {
     let cursor = document.getElementById('cursor');
@@ -37,11 +39,11 @@ function turnOn() {
     }
     let screen1 = document.querySelector('div#top-screen > div:first-child');
     let screen2 = document.getElementById('screen2');
-    let cursor = document.getElementById('cursor');
+    // let cursor = document.getElementById('cursor');
     let light = document.getElementById('led');
     let menu = document.querySelectorAll('ul')[0];
     menu.classList.remove('hidden');
-    cursor.classList.remove('hidden');
+    // cursor.classList.remove('hidden');
     screen1.style.backgroundImage = 'url(\'noise.gif\')';
     screen2.style.backgroundColor = '#5A9B9D';
     powerButton = true;
@@ -55,6 +57,9 @@ function shutdown() {
     let cursor = document.getElementById('cursor');
     let light = document.getElementById('led');
     let menu = document.querySelectorAll('ul')[0];
+    document.getElementById('pokemon-img').remove();
+    document.getElementsByClassName('pokemon-name')[0].remove();     
+    document.getElementsByClassName('pokedex-info-bg')[0].remove();
     menu.classList.add('hidden');
     cursor.classList.add('hidden');
     screen1.style.background = '#376092';
@@ -114,11 +119,15 @@ function searchPokemon() {
            img.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`;
            img.id = 'pokemon-img';
            img.classList.add('pokemon-image');
+           submenu.classList.remove('hidden');
+        //    setDesc()
         //    img.height = '300px';
         //    img.width = '300px';
            document.getElementById('top-screen').appendChild(h3);
            document.getElementById('top-screen').appendChild(img);
            document.getElementById('top-screen').appendChild(bgImg);
+           pokemonLoaded = true;
+           document.getElementsByClassName('menu')[0].classList.add('hidden');
         } else if (this.readyState == 4 && this.status == 404) {
             return alert('Pokemon ID out of range');
         }
@@ -133,6 +142,16 @@ class Pokemon {
         this.element = element;
         ALL_POKEMON.push(this);
     }
+}
+
+function loadPokemon() {
+
+}
+
+function  showMenu() {
+    let menu = document.querySelectorAll('ul')[0];
+    menu.classList.remove('hidden');
+    submenu.classList.add('hidden');
 }
 
 function viewStats() {

@@ -24,19 +24,19 @@
         <div id="bottom-screen">
             <div><div id='pwrbtn'></div></div>
             <div id="screen2">
+                <p id="desc" class="hidden"></p>
                 <div id="cursor" class="hidden"></div>
                 <ul class="menu hidden">
                     <li onclick="searchPokemon()">Search Pokemon</li>
-                    <li onclick="viewStats()">View Stats</li>
                     <li>Options</li>
                     <li onclick="shutdown()">Turn Off</li>
                 </ul>
-                <nav>
+                <nav id="submenu" class="hidden">
                     <ul class="navbar">
-                        <li>Stats</li>
+                        <li onclick="viewStats()">Stats</li>
                         <li>Info</li>
-                        <li>Search</li>
-                        <li>Menu</li>
+                        <li onclick="searchPokemon()">Search</li>
+                        <li onclick="showMenu()">Menu</li>
                     </ul>
                 </nav>
             </div>

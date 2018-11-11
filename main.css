@@ -287,6 +287,10 @@ div#bottom-screen > div:first-child {
    width: 89.3%;
 }
 
+#submenu {
+    animation: fadeIn 1s;
+}
+
 .navbar li {
     font-size: .8vw;
     font-family: sans-serif;
