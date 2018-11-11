@@ -279,6 +279,23 @@ div#bottom-screen > div:first-child {
     position: absolute;
 }
 
+.navbar {
+   position: absolute;
+   top: 75%;
+   background-color: blue;
+   padding: 3% 5%;
+   width: 89.3%;
+}
+
+.navbar li {
+    font-size: .8vw;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    display: inline;
+    list-style-type: none;
+    padding: 0 4%;
+}
+
 
 @media only screen and (max-width: 880px) {
     .device-grid {
