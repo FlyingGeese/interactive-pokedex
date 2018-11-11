@@ -74,7 +74,7 @@ function unpressBtn() {
 }
 
 function searchPokemon() {
-    var q = prompt('Enter Pokemon name or ID number');
+    var q = prompt('Enter Pokemon ID number');
     if (q == undefined || q == '') {
         return console.log('cancelled');
     }
@@ -115,6 +115,8 @@ function searchPokemon() {
            document.getElementById('top-screen').appendChild(h3);
            document.getElementById('top-screen').appendChild(img);
            document.getElementById('top-screen').appendChild(bgImg);
+        } else if (this.readyState == 4 && this.status == 404) {
+            return alert('Pokemon ID out of range');
         }
     };
     xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${q}.json`, true);
@@ -127,4 +129,10 @@ class Pokemon {
         this.element = element;
         ALL_POKEMON.push(this);
     }
+}
+
+function viewStats() {
+    let pk = ALL_POKEMON.pop();
+    ALL_POKEMON.push(pk);
+    return alert(pk.name);
 }
