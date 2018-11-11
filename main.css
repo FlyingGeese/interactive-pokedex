@@ -294,6 +294,8 @@ div#bottom-screen > div:first-child {
 .navbar li {
     font-size: .8vw;
     font-family: sans-serif;
+    text-align: center;
+    font-weight: 800;
     text-transform: uppercase;
     display: inline;
     list-style-type: none;
