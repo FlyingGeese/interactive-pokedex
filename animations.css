@@ -1,0 +1,19 @@
+@keyframes fadeToRight {
+    from {
+        left: 21%;
+        opacity: 0.01;
+    }
+    to {
+        left: 25%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

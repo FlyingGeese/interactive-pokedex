@@ -32,6 +32,9 @@ document.addEventListener("keydown", function (event) {
 
 
 function turnOn() {
+    if (powerButton == true) {
+        return console.log('Power is already on');
+    }
     let screen1 = document.querySelector('div#top-screen > div:first-child');
     let screen2 = document.getElementById('screen2');
     let cursor = document.getElementById('cursor');
@@ -40,7 +43,7 @@ function turnOn() {
     menu.classList.remove('hidden');
     cursor.classList.remove('hidden');
     screen1.style.backgroundImage = 'url(\'noise.gif\')';
-    screen2.style.backgroundColor = '#e5e5e5';
+    screen2.style.backgroundColor = '#5A9B9D';
     powerButton = true;
     light.classList.remove('pwr-off');
     light.classList.add('pwr-on');
@@ -107,6 +110,7 @@ function searchPokemon() {
            } else {
                var id = `${q}`;
            }
+           img.style.animation = 'fadeIn 0.8s';
            img.src = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`;
            img.id = 'pokemon-img';
            img.classList.add('pokemon-image');
@@ -132,7 +136,5 @@ class Pokemon {
 }
 
 function viewStats() {
-    let pk = ALL_POKEMON.pop();
-    ALL_POKEMON.push(pk);
-    return alert(pk.name);
+    return alert(ALL_POKEMON[ALL_POKEMON.length - 1].name);
 }

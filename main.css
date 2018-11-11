@@ -1,7 +1,7 @@
 :root {
     --pokedex-red: #E5441F;
     --screen: #376092;
-    
+    --game-green: #5A9B9D;
 }
 
 body {
@@ -35,7 +35,7 @@ body {
     list-style-type: none;
     text-transform: uppercase;
     font-weight: 600;
-     text-shadow: 2px 2px 14px #333;
+    text-shadow: 2px 2px 14px #233160;
     font-family: sans-serif;
     letter-spacing: 1.5px;
 }
@@ -130,6 +130,7 @@ div#bottom-screen > div:first-child {
 
 #screen2 {
     background-color: var(--screen);
+    color: whitesmoke;
     border: 3px solid #BFBFBF;
     border-radius: 5px;
     position: absolute;
@@ -264,6 +265,7 @@ div#bottom-screen > div:first-child {
     font-weight: 700;
     text-transform: uppercase;
     text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.56), 0 0 2rem rgba(0, 0, 0, 0.56);
+    animation: fadeToRight 1s;
 }
 
 .pokedex-info-bg {
