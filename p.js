@@ -17,6 +17,7 @@ let submenu = document.querySelector('#submenu');
 let pokemonLoaded = false;
 let nextArrow = document.getElementById('next-pokemon');
 let prevArrow = document.getElementById('prev-pokemon');
+let screenInfo = {top: undefined, bottom: undefined};
 
 nextArrow.addEventListener('click', getNextPokemon);
 prevArrow.addEventListener('click', getNextPokemon);
@@ -183,16 +184,20 @@ function loadPokemon() {
 }
 
 function showInfo() {
-    let div = document.createElement('div');
-    let h3 = document.createElement('h3');
-    h3.id = 'pokemon-genus';
-    div.id = 'pokemon-desc';
-    h3.innerHTML = ALL_POKEMON[ALL_POKEMON.length - 1].genus;
-    div.innerHTML = ALL_POKEMON[ALL_POKEMON.length - 1].desc;
-    h3.classList.add('bottom-screen-text');
-    div.classList.add('bottom-screen-text');
-    screen2.appendChild(h3);
-    screen2.appendChild(div);
+        if (screen['bottom'] == 'info') {
+            return console.log('Pokemon Info is already displaying');
+        }
+        let div = document.createElement('div');
+        let h3 = document.createElement('h3');
+        h3.id = 'pokemon-genus';
+        div.id = 'pokemon-desc';
+        h3.innerHTML = ALL_POKEMON[ALL_POKEMON.length - 1].genus;
+        div.innerHTML = ALL_POKEMON[ALL_POKEMON.length - 1].desc;
+        h3.classList.add('bottom-screen-text');
+        div.classList.add('bottom-screen-text');
+        screen2.appendChild(h3);
+        screen2.appendChild(div);
+        screen['bottom'] = 'info';
 }
 
 function showSkills() {
@@ -211,6 +216,7 @@ function clearBottomScreenText() {
     let h3 = document.getElementById('pokemon-genus');
     h3.remove();
     div.remove();
+    screen['bottom'] = '';
 }
 
 function viewStats() {
