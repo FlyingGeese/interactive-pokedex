@@ -56,9 +56,6 @@ function turnOn() {
     powerButton = true;
     light.classList.remove('pwr-off');
     light.classList.add('pwr-on');
-    for (el of document.getElementsByClassName('pdex-interface-top')) {
-        el.classList.remove('hidden');
-    }
 }
 
 function shutdown() {
@@ -146,6 +143,9 @@ function searchPokemon() {
            document.getElementById('top-screen').appendChild(bgImg);
            pokemonLoaded = true;
            document.getElementsByClassName('menu')[0].classList.add('hidden');
+            for (el of document.getElementsByClassName('pdex-interface-top')) {
+                el.classList.remove('hidden');
+            }
         } else if (this.readyState == 4 && this.status == 404) {
             alert('Pokemon ID out of range');
             return searchPokemon();

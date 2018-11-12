@@ -13,3 +13,7 @@ go to the next or previous pokemon
 - stats and abilities on a chart at the bottom.
   - bottom screen has a navbar with options
   [stats info search menu]
+
+- elements show up on the bottom screen based on the
+current pokemons elements. it will be the elemental background
+with a faded black background over the element itself

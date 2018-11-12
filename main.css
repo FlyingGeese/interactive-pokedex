@@ -26,7 +26,7 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .menu li {
@@ -271,7 +271,7 @@ div#bottom-screen > div:first-child {
 .pokedex-info-bg {
     transform: rotate(30deg);
     z-index: 2;
-    opacity: 0.02;
+    opacity: 0.12;
     height: auto;
     width: 32%;
     top: 8%;
@@ -281,10 +281,12 @@ div#bottom-screen > div:first-child {
 
 .navbar {
    position: absolute;
-   top: 75%;
-   background-color: blue;
-   padding: 3% 5%;
+   top: 80%;
+   right: 0.1%;
+   background-color:#36365d;
+   padding: 1% 5%;
    width: 89.3%;
+   border-radius: 2px;
 }
 
 #submenu {
@@ -292,7 +294,7 @@ div#bottom-screen > div:first-child {
 }
 
 .navbar li {
-    font-size: .8vw;
+    font-size: .65vw;
     font-family: sans-serif;
     text-align: center;
     font-weight: 800;
@@ -304,20 +306,28 @@ div#bottom-screen > div:first-child {
 
 #next-pokemon {
     position: absolute;
-    top: 32%;
-    right: 21%;
-    border: 1px solid red;
-    height: 30px;
-    width: 30px;
+    top: 34%;
+    right: 21.5%;
+    width: 3%;
+    height: auto;
+    color: whitesmoke;
+}
+
+#next-pokemon:hover {
+    cursor: pointer;
 }
 
 #prev-pokemon {
     position: absolute;
-    border: 1px solid red;
-    height: 30px;
-    width: 30px;
-    top: 32%;
-    right: 70%;
+    width: 3%;
+    height: auto;
+    top: 34.3%;
+    right: 73.2%;
+    color:whitesmoke;
+}
+
+#prev-pokemon:hover {
+    cursor: pointer;
 }
 
 
