@@ -315,6 +315,13 @@ div#bottom-screen > div:first-child {
   font-size: 0.9em;
   animation: fadeToRight 1.5s; }
 
+#statsChart {
+  position: absolute;
+  top: 5%;
+  right: 4.8%;
+  height: 200px;
+  width: 100px; }
+
 @media only screen and (max-width: 880px) {
   .device-grid {
     transform: rotate(90deg);

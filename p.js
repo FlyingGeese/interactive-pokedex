@@ -13,11 +13,13 @@ let powerButton = false;
 let atTop = true;
 let atBottom = false;
 let screen1 = document.querySelector('div#top-screen > div:first-child');
+let screen2 = document.getElementById('screen2');
 let submenu = document.querySelector('#submenu');
 let pokemonLoaded = false;
 let nextArrow = document.getElementById('next-pokemon');
 let prevArrow = document.getElementById('prev-pokemon');
-let screenInfo = {top: undefined, bottom: undefined};
+let stats = document.getElementById('statsChart');
+let screen = {top: undefined, bottom: undefined};
 
 nextArrow.addEventListener('click', getNextPokemon);
 prevArrow.addEventListener('click', getNextPokemon);
@@ -175,6 +177,7 @@ class Pokemon {
         this.genus = genus;
         this.bgColor = bgColor;
         this.desc = desc;
+        this.stats = undefined;
         ALL_POKEMON.push(this);
     }
 }
@@ -228,8 +231,56 @@ function clearBottomScreenText() {
 }
 
 function viewStats() {
-    return alert(ALL_POKEMON[ALL_POKEMON.length - 1].name);
+    let current_pokemon = ALL_POKEMON[ALL_POKEMON.length - 1];
+    let id = current_pokemon.id;
+    if (screen['bottom'] == 'stats') {
+        return console.log('Stats are already displaying');
+    } else {
+        screen2.style.backgroundColor = 'whitesmoke';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);
+                console.log(data);
+                current_pokemon.stats = data['stats'];
+            }
+        };
+        xhttp.open('GET', `https://fizal.me/pokeapi/api/v2/id/${id}.json`, true);
+        xhttp.send();
+        setTimeout(generateGraph, 250);
+        screen['bottom'] = 'stats';
+    }
 }
+
+function generateGraph() {
+    var graph = document.getElementById('statsChart');
+    graph.classList.remove('hidden');
+    let stats = ALL_POKEMON[ALL_POKEMON.length - 1].stats;
+    var ctx = graph.getContext('2d');
+    let vals = []; let labels = [];
+    for (stat of stats) {
+        labels.push(stat['stat']['name']);
+    }
+    console.log(labels);
+    for (stat of stats) {
+        console.log(stat['base_stat']);
+        vals.push(stat['base_stat']);
+    }
+    var chart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: `${ALL_POKEMON[ALL_POKEMON.length - 1].name.toUpperCase()} STATS`,
+                backgroundColor: `${ALL_POKEMON[ALL_POKEMON.length - 1].bgColor}`,
+                borderColor: `dark${ALL_POKEMON[ALL_POKEMON.length - 1].bgColor}`,
+                data: vals,
+            }]
+        },
+        options: {responsive: true}
+    });
+}
+
 
 function getNextPokemon(direction) {
     let current_pokemon = ALL_POKEMON[ALL_POKEMON.length - 1].id;
@@ -288,4 +339,9 @@ function getNextPokemon(direction) {
     }
     xhttp.open("GET", `https://pokeapi.co/api/v2/pokemon-species/${nextPokemon}/`, true)
     xhttp.send();
+}
+
+
+function capturePokemon() {
+    navigator.getUserMedia();
 }
