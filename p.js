@@ -107,17 +107,27 @@ function searchPokemon() {
         if (this.readyState == 4 && this.status == 200) {
            var pokemon = JSON.parse(this.responseText);
            console.log(pokemon);
+            if (pokemonLoaded == true) {
+                clearBottomScreenText();
+            }
            let existing_img = document.getElementById('pokemon-img');
            if (existing_img != null) {
                existing_img.remove();
                let name = document.getElementsByClassName('pokemon-name')[0];
                name.remove();
            }
-           new Pokemon(pokemon['id'], pokemon['name'], pokemon['types'][0]['type']['name']);
+        //    id name genus bgcolor desc
+           new Pokemon(pokemon['id'],
+                       pokemon['name'],
+                       pokemon['genera'][2]['genus'],
+                       pokemon['color']['name'],
+                       pokemon['flavor_text_entries'][2]['flavor_text'],
+           );
            screen1.style.backgroundColor = 'lightblue';
-           screen1.style.backgroundImage = 'linear-gradient(lightblue, blue)';
+           screen1.style.backgroundImage = `linear-gradient(lightblue, ${pokemon['name'], pokemon['color']['name']})`;
            let img = document.createElement('img');
            let bgImg = document.createElement('img');
+           bgImg.id = 'pokeballbg';
            bgImg.src = 'pokeball.png';
            bgImg.classList.add('pokedex-info-bg');
            let h3 = document.createElement('h3');
@@ -141,6 +151,7 @@ function searchPokemon() {
            document.getElementById('top-screen').appendChild(h3);
            document.getElementById('top-screen').appendChild(img);
            document.getElementById('top-screen').appendChild(bgImg);
+           setTimeout(showInfo, 250);
            pokemonLoaded = true;
            document.getElementsByClassName('menu')[0].classList.add('hidden');
             for (el of document.getElementsByClassName('pdex-interface-top')) {
@@ -151,15 +162,18 @@ function searchPokemon() {
             return searchPokemon();
         }
     };
-    xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${q}.json`, true);
+    // xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${q}.json`, true);
+    xhttp.open("GET", `https://pokeapi.co/api/v2/pokemon-species/${q}/`, true);
     xhttp.send();
 }
 
 class Pokemon {
-    constructor(id, name, element) {
+    constructor(id, name, genus, bgColor, desc) {
         this.id = id;
         this.name = name;
-        this.element = element;
+        this.genus = genus;
+        this.bgColor = bgColor;
+        this.desc = desc;
         ALL_POKEMON.push(this);
     }
 }
@@ -168,14 +182,35 @@ function loadPokemon() {
 
 }
 
+function showInfo() {
+    let div = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.id = 'pokemon-genus';
+    div.id = 'pokemon-desc';
+    h3.innerHTML = ALL_POKEMON[ALL_POKEMON.length - 1].genus;
+    div.innerHTML = ALL_POKEMON[ALL_POKEMON.length - 1].desc;
+    h3.classList.add('bottom-screen-text');
+    div.classList.add('bottom-screen-text');
+    screen2.appendChild(h3);
+    screen2.appendChild(div);
+}
+
 function showSkills() {
     document.createElement('div');
 }
 
-function  showMenu() {
+function showMenu() {
+    clearBottomScreenText();
     let menu = document.querySelectorAll('ul')[0];
     menu.classList.remove('hidden');
     submenu.classList.add('hidden');
+}
+
+function clearBottomScreenText() {
+    let div = document.getElementById('pokemon-desc');
+    let h3 = document.getElementById('pokemon-genus');
+    h3.remove();
+    div.remove();
 }
 
 function viewStats() {
@@ -203,13 +238,18 @@ function getNextPokemon(direction) {
         if (this.readyState == 4 && this.status == 200) {
             var pokemon = JSON.parse(this.responseText);
             console.log(pokemon);
+            if (pokemonLoaded == true) {
+                clearBottomScreenText();
+            }
             screen1.style.backgroundColor = 'lightblue';
-            screen1.style.backgroundImage = 'linear-gradient(lightblue, blue)';
+            screen1.style.backgroundImage = `linear-gradient(lightblue, ${pokemon['name'], pokemon['color']['name']})`;
             document.getElementById('pokemon-img').remove();
+            document.getElementById('pokeballbg').remove();
             document.getElementsByClassName('pokemon-name')[0].remove();
             let img = document.createElement('img');
             let bgImg = document.createElement('img');
             bgImg.src = 'pokeball.png';
+            bgImg.id = 'pokeballbg';
             bgImg.classList.add('pokedex-info-bg');
             let h3 = document.createElement('h3');
             h3.classList.add('pokemon-name');
@@ -222,10 +262,16 @@ function getNextPokemon(direction) {
             document.getElementById('top-screen').appendChild(h3);
             document.getElementById('top-screen').appendChild(img);
             document.getElementById('top-screen').appendChild(bgImg);
-            new Pokemon(pokemon['id'], pokemon['name'], pokemon['types'][0]['type']['name']);
+            new Pokemon(pokemon['id'],
+                pokemon['name'],
+                pokemon['genera'][2]['genus'],
+                pokemon['color']['name'],
+                pokemon['flavor_text_entries'][2]['flavor_text']
+            );
+            setTimeout(showInfo, 250);
             pokemonLoaded = true;
         }
     }
-    xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${nextPokemon}.json`, true);
+    xhttp.open("GET", `https://pokeapi.co/api/v2/pokemon-species/${nextPokemon}/`, true)
     xhttp.send();
 }
