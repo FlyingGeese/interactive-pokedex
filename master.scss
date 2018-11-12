@@ -1,0 +1,348 @@
+@import "animations";
+
+:root {
+    --pokedex-red: #E5441F;
+    --screen: #376092;
+    --game-green: #5A9B9D;
+}
+
+%device-half {
+    background: #E5441F;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+body {
+    margin: 0;
+}
+
+#dex {
+    position: fixed;
+    top: 10px;
+    left: 22%;
+}
+
+.invisible {
+   opacity: 0;
+}
+
+.menu {
+    position: absolute;
+    top: 13%;
+    left: 7.2%;
+    transition: display 1.3s;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.menu li {
+    padding-bottom: 12%;
+    padding-left: 0;
+    list-style-type: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-shadow: 2px 2px 14px #233160;
+    font-family: sans-serif;
+    letter-spacing: 1.5px;
+}
+
+ul li:hover {
+    cursor: pointer;
+} 
+
+.device-grid {
+    display: grid;
+    position: fixed;
+    top: 7%;
+    left: 32%;
+    grid-template: 300px 300px / 500px;
+    transition: transform 1.2s, position 1s;
+}
+
+div#top-screen {
+    z-index: 1;
+}
+
+.device-grid div:nth-child(1) {
+    /* top half of device */
+    @extend %device-half;
+}
+
+.device-grid div:nth-child(2) {
+    /* bottom half of device */
+    border-top: 1px solid black;
+    @extend %device-half;
+}
+
+.shade-top {
+    box-shadow: inset 0px 5px 1px #333;
+    /* inset 2px 4px 34px 4px #333 */
+}
+
+.lightfx-top {
+
+}
+
+.pokemon-image {
+    position: absolute;
+    z-index: 3;
+    top: 7%;
+    height: auto;
+    width: 33%;
+    right: 20%;;
+}
+
+div#top-screen > div:first-child {
+    /* top screen */
+    border-radius: 5px;
+    border-top-right-radius: 5px !important;
+    background: var(--screen);
+    border: 3px solid #BFBFBF;
+    position: absolute;
+    top: 5%;
+    left: 22%;
+    width: 58%;
+    height: 33.3%;
+    transition: background 1s;
+}
+
+div#top-screen > div:nth-child(2) {
+   /*  */
+   background: #474747 !important;
+   border: 3px solid black;
+   border-radius: 9px;
+   position: absolute;
+   width: 81%;
+   height: 30.6%;
+   z-index: -1;
+   top: 6.5%;
+   left: 12%;
+}
+
+div#bottom-screen > div:first-child {
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
+    background: #474747;
+    position: absolute;
+    bottom: 15%;
+    right: -30%;
+    height: 150px;
+    width: 150px;
+}
+
+#screen2 {
+    background-color: var(--screen);
+    color: whitesmoke;
+    border: 3px solid #BFBFBF;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 9%;
+    right: 19%;
+    width: 58%;
+    height: 35%;
+    transition: background-color 1.3s;
+}
+
+#pwrbtn {
+    height: 100px;
+    width: 100px;
+    border-radius: 50% !important;
+    background: #8BAF42;
+    position: absolute;
+    top: 16%;
+    left: 11%;
+    transition: transform .2s;
+}
+
+#pwrbtn:hover {
+    cursor: pointer;
+    background: rgb(113, 143, 54) !important;
+}
+
+%rounded-corners-left {
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+}
+
+.big-well {
+    @extend %rounded-corners-left;
+    background: #474747 !important;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: -45%;
+}
+
+.small-well {
+    @extend %rounded-corners-left; 
+    background: black !important;
+    width: 88%;
+    height: 62%;
+    position: absolute;
+    top: 15%;
+    left: 44.5%;
+}
+
+#led {
+    border-radius: 0 !important;
+    height: 10px;
+    width: 22px;
+    /* background: green !important; */
+    position: absolute;
+    top: 47%;
+    transition: background-color 1s;
+}
+
+.pwr-on {
+    border-top-color: #8BAF42;
+    box-shadow: 0 0 10px lightgreen;
+    background-color: rgb(51, 204, 51) !important;
+}
+
+.pwr-off {
+    border-top-color: #333;
+    background-color: rgb(107, 107, 107) !important;
+}
+
+#cursor {
+    width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+    border-left: 9px solid #555;
+    border-bottom: 5px solid transparent;
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    top: 22%;
+    left: 14%;
+}
+
+.dot {
+    background: black !important;
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    top: 20%;
+    right: 11%;
+    border-radius: 50% !important;
+    z-index: 2;
+}
+
+#sp1 {
+  top: 40%;
+}
+
+#sp2 {
+    right: 35%;
+}
+
+#sp3 {
+  top: 40%;
+  left: 33%;
+}
+
+#sp4 {
+    top: 58%;
+    right: 35%;
+}
+
+
+#speaker {
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+    background: var(--pokedex-red);
+    position: absolute;
+    top: 9%;
+    left: -22%;
+    height: 29%;
+    width: 26%;
+}
+
+.pokemon-name {
+    font-family: Arial;
+    color: #fff;
+    position: absolute;
+    font-size: 1.5vw;
+    z-index: 4;
+    top: 18%;
+    left: 25%;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.56), 0 0 2rem rgba(0, 0, 0, 0.56);
+    animation: fadeToRight 1s;
+}
+
+.pokedex-info-bg {
+    transform: rotate(30deg);
+    z-index: 2;
+    opacity: 0.12;
+    height: auto;
+    width: 32%;
+    top: 8%;
+    right: 31%;
+    position: absolute;
+}
+
+.navbar {
+   position: absolute;
+   top: 80%;
+   right: 0.1%;
+   background-color:#36365d;
+   padding: 1% 5%;
+   width: 89.3%;
+   border-radius: 2px;
+}
+
+#submenu {
+    animation: fadeIn 1s;
+}
+
+.navbar li {
+    font-size: .65vw;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline;
+    list-style-type: none;
+    padding: 0 4%;
+}
+
+%arrow {
+    position: absolute;
+    color: whitesmoke;
+    width: 3%;
+    height: auto;
+}
+
+#next-pokemon {
+    @extend %arrow;
+    top: 34%;
+    right: 21.5%;
+}
+
+#next-pokemon:hover {
+    cursor: pointer;
+}
+
+#prev-pokemon {
+    @extend %arrow;  
+    top: 34.3%;
+    right: 73.2%;
+}
+
+#prev-pokemon:hover {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 880px) {
+    .device-grid {
+        transform: rotate(90deg);
+        left: 15%;
+        top: 20.2%;
+    }
+}
