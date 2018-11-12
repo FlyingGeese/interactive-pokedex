@@ -1,10 +1,11 @@
 // let pokedex = document.getElementById('pokedex');
 let pwrbtn = document.getElementById('pwrbtn');
 const ALL_POKEMON = [];
+// group elements by class name to determine what should be
+// made visible at what time.
 
 pwrbtn.addEventListener('click', turnOn);
 pwrbtn.addEventListener('click', depressBtn);
-// // get diff coords by determining client with and perform Math
 // // change background depending on which element
 // // typewriter text in screen
 // // flips to stat bars animation
@@ -18,7 +19,7 @@ let nextArrow = document.getElementById('next-pokemon');
 let prevArrow = document.getElementById('prev-pokemon');
 
 nextArrow.addEventListener('click', getNextPokemon);
-prevArrow.addEventListener('click', getPrevPokemon);
+prevArrow.addEventListener('click', getNextPokemon);
 
 
 document.addEventListener("keydown", function (event) {
@@ -55,6 +56,9 @@ function turnOn() {
     powerButton = true;
     light.classList.remove('pwr-off');
     light.classList.add('pwr-on');
+    for (el of document.getElementsByClassName('pdex-interface-top')) {
+        el.classList.remove('hidden');
+    }
 }
 
 function shutdown() {
@@ -77,6 +81,9 @@ function shutdown() {
     screen2.style.backgroundColor = '#376092';
     light.classList.remove('pwr-on');
     light.classList.add('pwr-off');
+    for (el of document.getElementsByClassName('pdex-interface-top')) {
+        el.classList.add('hidden');
+    }
 }
 
 function depressBtn() {
@@ -175,10 +182,15 @@ function viewStats() {
     return alert(ALL_POKEMON[ALL_POKEMON.length - 1].name);
 }
 
-function getNextPokemon() {
+function getNextPokemon(direction) {
     let current_pokemon = ALL_POKEMON[ALL_POKEMON.length - 1].id;
-    console.log(current_pokemon)
-    let nextPokemon = current_pokemon + 1;
+    if (direction == undefined || direction.target.id == 'next-pokemon') {
+        console.log(current_pokemon)
+        var nextPokemon = current_pokemon + 1;
+    } else if (direction.target.id == 'prev-pokemon') {
+        console.log(current_pokemon)
+        var nextPokemon = current_pokemon - 1;
+    }
     if (nextPokemon <= 9) {
         var id = `00${nextPokemon}`;
     } else if (nextPokemon <= 99) {
@@ -216,8 +228,4 @@ function getNextPokemon() {
     }
     xhttp.open("GET", `http://fizal.me/pokeapi/api/v2/id/${nextPokemon}.json`, true);
     xhttp.send();
-}
-
-function getPrevPokemon() {
-
 }

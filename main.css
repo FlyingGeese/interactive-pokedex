@@ -271,7 +271,7 @@ div#bottom-screen > div:first-child {
 .pokedex-info-bg {
     transform: rotate(30deg);
     z-index: 2;
-    opacity: 0.15;
+    opacity: 0.02;
     height: auto;
     width: 32%;
     top: 8%;
@@ -300,6 +300,24 @@ div#bottom-screen > div:first-child {
     display: inline;
     list-style-type: none;
     padding: 0 4%;
+}
+
+#next-pokemon {
+    position: absolute;
+    top: 32%;
+    right: 21%;
+    border: 1px solid red;
+    height: 30px;
+    width: 30px;
+}
+
+#prev-pokemon {
+    position: absolute;
+    border: 1px solid red;
+    height: 30px;
+    width: 30px;
+    top: 32%;
+    right: 70%;
 }
 
 
