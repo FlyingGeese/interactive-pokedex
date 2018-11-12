@@ -1,4 +1,5 @@
 @import "animations";
+@import "textures";
 
 :root {
     --pokedex-red: #E5441F;
@@ -339,6 +340,7 @@ div#bottom-screen > div:first-child {
 }
 
 #pokemon-genus {
+    font-style: italic;
     font-size: 1.1em;
     margin-top: 11.5%;
     margin-bottom: 4.5%;

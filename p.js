@@ -122,7 +122,7 @@ function searchPokemon() {
                        pokemon['name'],
                        pokemon['genera'][2]['genus'],
                        pokemon['color']['name'],
-                       pokemon['flavor_text_entries'][2]['flavor_text'],
+                       getEnDescription(pokemon['flavor_text_entries']),
            );
            screen1.style.backgroundColor = 'lightblue';
            screen1.style.backgroundImage = `linear-gradient(lightblue, ${pokemon['name'], pokemon['color']['name']})`;
@@ -181,6 +181,14 @@ class Pokemon {
 
 function loadPokemon() {
 
+}
+
+function getEnDescription(texts) {
+   for (line of texts) {
+        if (line['language']['name'] === 'en') {
+           return line['flavor_text'];
+        }
+   }
 }
 
 function showInfo() {
@@ -272,7 +280,7 @@ function getNextPokemon(direction) {
                 pokemon['name'],
                 pokemon['genera'][2]['genus'],
                 pokemon['color']['name'],
-                pokemon['flavor_text_entries'][2]['flavor_text']
+                getEnDescription(pokemon['flavor_text_entries'])
             );
             setTimeout(showInfo, 250);
             pokemonLoaded = true;

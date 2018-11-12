@@ -297,6 +297,7 @@ div#bottom-screen > div:first-child {
   cursor: pointer; }
 
 #pokemon-genus {
+  font-style: italic;
   font-size: 1.1em;
   margin-top: 11.5%;
   margin-bottom: 4.5%;
